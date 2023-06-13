@@ -31,13 +31,16 @@ jobs:
     - name: Checkmarx DAST Github Action
       uses: Checkmarx/dast-github-action@v1.0.2
       env:
-        CX_APIKEY: ${{ secrets.CX_APIKEY }}
+        #CX_APIKEY: ${{ secrets.CX_APIKEY }}
+        CX_APIKEY: ${{ secrets.DEUCX_APIKEY }}
       with:
         command: "web"
         config: './gin_juice.yaml'
         # openapi: file here
-        base_url: "https://eu.ast.checkmarx.net"
-        environment_id: "2510061b-7ac4-46f8-9583-3ba4e59b78f3"
+        #base_url: "https://eu.ast.checkmarx.net"
+        base_url: "https://deu.ast.checkmarx.net"
+        #environment_id: "2510061b-7ac4-46f8-9583-3ba4e59b78f3"
+        environment_id: "085a9321-d79e-4cd7-a154-0f27fdea7956"
         fail_on: "HIGH"
         verbose: true
         output: ./output
